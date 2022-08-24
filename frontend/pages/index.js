@@ -31,6 +31,31 @@ export default function Home() {
     return web3Provider;
   }
 
+  const addAddressToWhitelist = async () => {
+    try {
+      const signer = await getProviderOrSigner(true);
+      
+      // creating an instance
+      const whitelistContract = new Contract(
+        WHITELIST_CONTRACT_ADDRESS,
+        abi,
+        signer
+      );
+
+      const tx = await whitelistContract.addAddressToWhitelist();
+      setLoading(true);
+
+      await tx.wait();
+      setLoading(false);
+
+      await getNumberOfWhitelisted();
+      setJoinedWhitelist(true);
+    }
+    catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
     <div className={styles.container}>
       <Head>
