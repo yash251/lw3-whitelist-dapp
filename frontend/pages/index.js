@@ -56,6 +56,24 @@ export default function Home() {
     }
   };
 
+  const getNumberOfWhitelisted = async () => {
+    try {
+      const provider = await getProviderOrSigner();
+
+      const whitelistContract = new Contract(
+        WHITELIST_CONTRACT_ADDRESS,
+        abi,
+        provider
+      );
+
+      const _numberOfWhitelisted = await whitelistContract.numAddressesWhitelisted();
+      setNumberOfWhitelisted(_numberOfWhitelisted);
+    }
+    catch (error) {
+      console.error(error);
+    }
+  }
+
   return (
     <div className={styles.container}>
       <Head>
