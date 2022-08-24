@@ -122,7 +122,7 @@ export default function Home() {
       else {
         return (
           <button onClick={addAddressToWhitelist} className={styles.button}>
-            Join the whitelist 🙏🏻
+            Join the whitelist
           </button>
         );
       }
