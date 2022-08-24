@@ -72,6 +72,26 @@ export default function Home() {
     catch (error) {
       console.error(error);
     }
+  };
+
+  const checkIfAddressInWhitelist = async () => {
+    try {
+      const signer = await getProviderOrSigner(true);
+
+      const whitelistContract = new Contract(
+        WHITELIST_CONTRACT_ADDRESS,
+        abi,
+        signer
+      );
+
+      const address = await signer.getAddress();
+
+      const _joinedWhitelist = await whitelistContract.whitelistedAddresses(address);
+      setJoinedWhitelist(_joinedWhitelist);
+    }
+    catch (error) {
+      console.error(error);
+    }
   }
 
   return (
