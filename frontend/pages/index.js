@@ -92,7 +92,20 @@ export default function Home() {
     catch (error) {
       console.error(error);
     }
-  }
+  };
+
+  const connectWallet = async () => {
+    try {
+      await getProviderOrSigner();
+      setWalletConnected(true);
+
+      checkIfAddressInWhitelist();
+      getNumberOfWhitelisted();
+    }
+    catch (error) {
+      console.error(error);
+    }
+  };
 
   return (
     <div className={styles.container}>
