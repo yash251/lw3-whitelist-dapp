@@ -27,3 +27,4 @@ contract Whitelist {
         numAddressesWhitelisted += 1;
     }
 }
+// contract address - 0x7615FCD8f37b68bcDa787ECc32B99406C0c3c0fA
