@@ -18,9 +18,9 @@ export default function Home() {
     const web3Provider = new providers.Web3Provider(provider);
 
     const { chainId } = await web3Provider.getNetwork();
-    if (chainId !== 4) {
-      window.alert("Switch to Rinkeby network");
-      throw new Error("Change network to Rinkeby");
+    if (chainId !== 5) {
+      window.alert("Switch to Goerli network");
+      throw new Error("Change network to Goerli");
     }
 
     if (needSigner) {
